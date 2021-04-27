@@ -53,14 +53,12 @@ header .nav-right ul li {
     font-weight: 600;
 }
 
-.container {
-    margin: 20px;
-}
 
 .post-content {
     padding: 10px;
     background: rgb(240, 253, 253);
     border-radius: 10px;
+    margin: 20px;
 }
 
 .post-content p {
