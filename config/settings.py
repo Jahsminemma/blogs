@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 from environs import Env
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +33,8 @@ DEBUG = env.bool("DEBUG", default=False)
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://zuriblog-app.herokuapp.com',
+                 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -140,6 +142,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 env = Env()
 env.read_env()
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# Activating django heroku
+django_heroku.settings(locals())
