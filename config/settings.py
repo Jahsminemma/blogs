@@ -30,7 +30,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 
 DEBUG = env.bool("DEBUG", default=False)
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production.trace()
 
 
 ALLOWED_HOSTS = ['https://zuriblog-app.herokuapp.com',
