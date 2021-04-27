@@ -26,9 +26,11 @@
                 <a href="{% url 'signup'%}">signup</a>
             </li>
             {% endif %}
+            {% if user.is_authenticated %}
             <li>
                <a href="{% url 'post_new' %}">New post</a>
             </li>
+             {% endif %}
            </ul>
        </div>
     </header>
