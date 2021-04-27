@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post-content">
+<h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+<p>{{post.body }}</p>
+</div>
+<a href="{%url 'post_update' post.pk %}"> Edit post</a>
+
+<hr>
+
+{% if user.is_authenticated %}
+<h2>Add Comment</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+    {{ commentform.as_table }}
+    </table>
+    <button type="submit">Submit</button>
+</form>
+{% endif%}
+
+<div class="comments">
+    <h1>Comments</h1>
+{% for comment in post.comments.all %}
+<div style="background-color: azure; padding-left: 15px;">
+<p style="margin-bottom: -10px;">
+{{comment.name}}
+</p>
+<p>
+{{ comment.comment }}
+</p>
+</div>
+<hr>
+{% endfor %}
+</div>
+{% endblock content %}

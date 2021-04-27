@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h2>Login</h2>
+    <div class="form-group">
+    <form  method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log In</button>
+        <a style="margin-left: 15px;" href="{% url 'password_reset'%}">Reset password</a>
+    </form>
+    </div>
+{% endblock content%}
