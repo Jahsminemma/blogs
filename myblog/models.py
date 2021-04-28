@@ -27,6 +27,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'comment  {} by {}, '.format(self.comment, self.name)
-
-    def get_absolute_url(self):
-        return reverse('post_detail', args=[str(post.pk)])
