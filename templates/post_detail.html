@@ -1,43 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="post-content">
-<h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-<p>{{post.body }}</p>
-</div>
-{% if user.is_authenticated %}
-<button><a style="font-size: 17px;" href="{%url 'post_update' post.pk %}"> Edit post</a></button>
-<hr>
-<h2>Add Comment</h2>
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>
-    {{ commentform.as_table }}
-    </table>
-    <button type="submit">Submit</button>
-</form>
-{% else %}
-   <button><a href="{% url 'login' %}">Login to comment</a></button>
-{% endif%}
+<div class="postdetail-container">
+    <div class="post-content">
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <p>{{post.body }}</p>
+    </div>
+    {% if user.is_authenticated %}
+    <button><a style="font-size: 17px;" href="{%url 'post_update' post.pk %}"> Edit post</a></button>
+    <hr>
+    <h2>Add Comment</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+        {{ commentform.as_table }}
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    <button><a href="{% url 'login' %}">Login to comment</a></button>
+    {% endif%}
 
-<div class="comments">
-    <h1>Comments</h1>
-{% for comment in post.comments.all %}
-<div style="background-color: azure; padding-left: 15px;">
-    <ul>
-        <li style="list-style: circle;">
-        <h3 style="margin-bottom: -10px;">
-            {{comment.name}}
-            <span style="padding-left: 20px; font-size: 14px;">{{comment.created_on}}</span>
-        </h3>
-        <p>
-            {{ comment.comment }}
-        </p>
-        
+    <div class="comments">
+        <h1>Comments</h1>
+    {% for comment in post.comments.all %}
+    <div style="background-color: azure; padding-left: 15px;">
+        <ul>
+            <li style="list-style: circle;">
+            <h3 style="margin-bottom: -10px;">
+                {{comment.name}}
+                <span style="padding-left: 20px; font-size: 14px;">{{comment.created_on}}</span>
+            </h3>
+            <p>
+                {{ comment.comment }}
+            </p>
+            
+        </li>
+        </ul>
+    </div>
+    <hr>
     </li>
-    </ul>
-</div>
-<hr>
-</li>
-{% endfor %}
+    {% endfor %}
+    </div>
 </div>
 {% endblock content %}
