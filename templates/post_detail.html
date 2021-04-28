@@ -24,11 +24,11 @@
 {% for comment in post.comments.all %}
 <div style="background-color: azure; padding-left: 15px;">
     <ul>
-        <li>
-        <p style="margin-bottom: -10px;">
+        <li style="list-style: circle;">
+        <h3 style="margin-bottom: -10px;">
             {{comment.name}}
-            <span style="padding-left: 20px;">{{comment.created_on}}</span>
-            </p>
+            <span style="padding-left: 20px; font-size: 14px;">{{comment.created_on}}</span>
+        </h3>
         <p>
             {{ comment.comment }}
         </p>
