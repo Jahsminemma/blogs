@@ -24,9 +24,9 @@
 {% for comment in post.comments.all %}
 <div style="background-color: azure; padding-left: 15px;">
     <ul>
-        <p style="margin-bottom: -10px; background-color: rgb(184, 184, 179);">
+        <li><p style="margin-bottom: -10px; background-color: rgb(184, 184, 179);">
         {{comment.name}}
-        <span style="margin-left: 20px;">comment.created_on</span>
+        <span style="padding-left: 20px;">{{comment.created_on}}</span>
         </p>
         <p>
         {{ comment.comment }}
@@ -34,6 +34,7 @@
     </ul>
 </div>
 <hr>
+</li>
 {% endfor %}
 </div>
 {% endblock content %}
