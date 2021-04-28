@@ -4,11 +4,9 @@
 <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
 <p>{{post.body }}</p>
 </div>
-<a href="{%url 'post_update' post.pk %}"> Edit post</a>
-
-<hr>
-
 {% if user.is_authenticated %}
+<button><a style="font-size: 17px;" href="{%url 'post_update' post.pk %}"> Edit post</a></button>
+<hr>
 <h2>Add Comment</h2>
 <form action="" method="POST">
     {% csrf_token %}
@@ -17,18 +15,23 @@
     </table>
     <button type="submit">Submit</button>
 </form>
+{% else %}
+   <button><a href="{% url 'login' %}">Login to comment</a></button>
 {% endif%}
 
 <div class="comments">
     <h1>Comments</h1>
 {% for comment in post.comments.all %}
 <div style="background-color: azure; padding-left: 15px;">
-<p style="margin-bottom: -10px;">
-{{comment.name}}
-</p>
-<p>
-{{ comment.comment }}
-</p>
+    <ul>
+        <p style="margin-bottom: -10px; background-color: rgb(184, 184, 179);">
+        {{comment.name}}
+        <span style="margin-left: 20px;">comment.created_on</span>
+        </p>
+        <p>
+        {{ comment.comment }}
+        </p>
+    </ul>
 </div>
 <hr>
 {% endfor %}
