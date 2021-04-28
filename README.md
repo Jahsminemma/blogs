@@ -1,5 +1,5 @@
 # Blog app
- Link to the project deployed on heroku
+ Link to the project deployed app on heroku
  [https://zuriblog-app.herokuapp.com](https://zuriblog-app.herokuapp.com)
 
 
