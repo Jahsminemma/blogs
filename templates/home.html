@@ -6,8 +6,8 @@
 <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
 <div class="post-body">
     <p>{{post.body}}</p>
-    <button style="background-color: blue; border: none; color: white;">
-        <a href="{% url 'post_detail' post.pk %}">Read more</a>
+    <button style="background-color: blue; border: none; border-radius: 5px;">
+        <a style="color: white;" href="{% url 'post_detail' post.pk %}">Read more</a>
     </button>
 </div>
 </div>
