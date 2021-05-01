@@ -47,7 +47,7 @@ class BlogTests(TestCase):
         self.assertContains(response, 'A good title')
         self.assertTemplateUsed(response, 'post_detail.html')
 
-    def test_secure_page(self):
+    def test_login(self):
         User = get_user_model()
         self.client.login(username='testuser', password='secret')
         response = self.client.get('/admin/login')
